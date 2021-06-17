@@ -19,7 +19,7 @@ const Home = () => {
                     <button className="obtain-account btn-principal">Obtener Cuenta</button>
                 </section>
                 <section className="right">
-                    <img src={img_page}/>
+                    <img src={img_page} alt="img_page"/>
                 </section>
             </main>
         </Fragment>

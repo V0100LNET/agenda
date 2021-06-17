@@ -18,12 +18,12 @@ const Header = () => {
         <header>
             <div className="content-header">
                 <div className="content-header__logo">
-                    <a href="/"><img className="__logo" src={logo}/></a>
+                    <a href="/"><img className="__logo" src={logo} alt="logo"/></a>
                 </div>
                 <nav className="content-header__links">
-                    <a>Contacto</a>
-                    <a>Acerca de</a>
-                    <a>Proyectos</a>
+                    <a href="/#">Contacto</a>
+                    <a href="/#">Acerca de</a>
+                    <a href="/#">Proyectos</a>
                 </nav>
                 <div className="content-header__buttons">
                     <button className="__login btn-principal" onClick={submitLogin}>Iniciar Sesión</button>

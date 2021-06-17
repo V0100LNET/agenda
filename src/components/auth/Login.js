@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import Header from '../layout/Header';
-import image_login from '../../assets/svg/img_login_2.svg';
 import { useHistory } from 'react-router-dom';
 
 const Login = () => {
