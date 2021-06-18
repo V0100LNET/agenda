@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import logo from "./logo.png"
+import logo_login from "../../assets/img/logo-Ekomercio.png"
 
 const Header = () => {
     const history = useHistory();
@@ -18,7 +18,7 @@ const Header = () => {
         <header>
             <div className="content-header">
                 <div className="content-header__logo">
-                    <a href="/"><img className="__logo" src={logo} alt="logo"/></a>
+                    <a href="/"><img className="__logo" src={logo_login} alt="logo"/></a>
                 </div>
                 <nav className="content-header__links">
                     <a href="/#">Contacto</a>

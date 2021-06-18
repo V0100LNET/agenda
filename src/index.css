@@ -1,7 +1,7 @@
 /******************************styles principals **************************/
 :root{
     --primary-color: #1EA5FC;
-    --secundary-color: #eb3232;
+    --secundary-color: #234889;
 }
 
 *,
@@ -32,7 +32,8 @@ body{
     border: none;
     border: 1px solid rgb(233, 232, 232);
     font-size: 1.2rem;
-    color: rgb(185, 184, 184);
+    /* color: rgb(185, 184, 184); */
+    color: #606060;
     outline: none;
 }
 
@@ -47,8 +48,8 @@ body{
 }
 
 .content-header .content-header__logo .__logo{
-    width: 70px;
-    height: 70px;
+    width: 130px;
+    /* height: 70px; */
     cursor: pointer;
 }
 
@@ -56,8 +57,9 @@ body{
     font-size: 1.3rem;
     margin-right: 20px;
     cursor: pointer;
-    color: rgb(172, 172, 172);
+    /* color: rgb(172, 172, 172); */
     /* font-weight: bold; */
+    color: #234889;
     text-decoration: none;
 }
 
@@ -125,9 +127,13 @@ main .left .obtain-account{
 /******************************styles login**************************/
 .login{
     height: 100vh;
-    background: linear-gradient(90deg,#904e95,#e96443);
+    background-image: url("../src/assets/img/bg_login.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background: linear-gradient(90deg,#904e95,#e96443);
     padding: 20px;
-    margin: auto;
+    margin: auto;  */
 }
 
 .login .login__form form{
@@ -171,9 +177,9 @@ main .left .obtain-account{
     color: rgb(212, 212, 212);
 }
 
-.login .login__form input:focus{
+/* .login .login__form input:focus{
     color: rgb(211, 208, 208);
-}
+} * */
 
 .login .login__form .btn-login{
     color: white;
@@ -197,7 +203,10 @@ main .left .obtain-account{
 /******************************styles Register**************************/
 .register{
     height: 100vh;
-    background: linear-gradient(90deg,#904e95,#e96443);
+    background:  url("../src/assets/img/bg_login.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     padding: 20px;
     margin: auto;
 }
@@ -243,9 +252,9 @@ main .left .obtain-account{
     color: rgb(212, 212, 212);
 }
 
-.register .register__form input:focus{
+/* .register .register__form input:focus{
     color: rgb(211, 208, 208);
-}
+}  */
 
 .register .register__form .btn-re.register{
     color: white;
