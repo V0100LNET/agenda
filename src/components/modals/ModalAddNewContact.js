@@ -4,18 +4,16 @@ import validateNewContact from '../../helpers/validateNewContact';
 import Swal from 'sweetalert2'
 import axiosClient from '../../config/axios';
 import Spinner from '../Spinner';
+import { useHistory } from 'react-router-dom';
 
 
 const ModalAddNewContact = () => {
-    const {setModalAddNewContact, setOpacity, spinner, setSpinner} = useContext(PrincipalContext);
-    const [newContact, setNewContact] = useState({
-        "name": "",
-        "lastName": "",
-        "phone": "",
-        "email": "",
-        "creator": ""
-    })
-
+    const history = useHistory();
+    const {
+        setModalAddNewContact, setOpacity, 
+        spinner, setSpinner, 
+        newContact, setNewContact,
+    } = useContext(PrincipalContext);
     const {name, lastName, phone, email} = newContact;
     
     const setDataNewContact = (e) => {
@@ -84,6 +82,9 @@ const ModalAddNewContact = () => {
                 })
             },2000)
 
+            setTimeout(() => {
+                window.location.reload();
+            },3500)
 
 
         }catch (error){

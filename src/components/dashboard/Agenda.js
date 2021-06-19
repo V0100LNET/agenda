@@ -3,11 +3,12 @@ import Header from '../layout/Header';
 import CardContact from '../CardContact';
 import { PrincipalContext } from '../../context';
 import ModalAddNewContact from '../modals/ModalAddNewContact';
+import ModalEditContact from '../modals/ModalEditContact';
 
 const Agenda = () => {
     const {
         modalAddNewContact, setModalAddNewContact,
-        setOpacity
+        setOpacity, modalEditContact
     } = useContext(PrincipalContext);
 
     const showModalAddNewContact = () => {
@@ -36,6 +37,7 @@ const Agenda = () => {
             <CardContact/>
 
             {modalAddNewContact ? <ModalAddNewContact/> : null}
+            {modalEditContact ? <ModalEditContact/> : null}
 
         </Fragment>
     )

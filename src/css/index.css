@@ -126,6 +126,25 @@ body{
     margin-right: 10px;
 }
 
+.content-header .content-header__buttons .__login:hover{
+    background-color: var(--secundary-color);
+    transition: 0.3s ease;
+    color: white;
+    animation-name: slow-color;
+    animation-duration: 2s;
+    animation-direction: normal;
+    animation-timing-function: linear;
+}
+
+@keyframes slow-color{
+    0% {background-color: #2e394d;}
+    20% {background-color: #3e4e69;}
+    40% {background-color: #1f3253;}
+    60% {background-color: #234889;}
+    80% {background-color: #234889;}
+    100% {background-color: #234889;}
+}
+
 .content-header .content-header__buttons .__register{
     border: 1px solid var(--secundary-color);
     padding: 8px 10px;
@@ -180,7 +199,7 @@ main .left .obtain-account{
 /******************************styles login**************************/
 .login{
     height: 100vh;
-    background-image: url("../src/assets/img/bg_login.jpg");
+    background-image: url("../assets/img/bg_login.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -256,7 +275,7 @@ main .left .obtain-account{
 /******************************styles Register**************************/
 .register{
     height: 100vh;
-    background:  url("../src/assets/img/bg_login.jpg");
+    background:  url("../assets/img/bg_login.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

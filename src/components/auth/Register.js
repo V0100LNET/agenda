@@ -5,11 +5,12 @@ import axiosClient from '../../config/axios';
 import { PrincipalContext } from '../../context';
 import validateRegister from '../../helpers/validateRegister';
 import Header from '../layout/Header';
+import Spinner from '../Spinner';
 
 
 const Register = () => {
     const history = useHistory();
-    const {setOpacity, setSpinner} = useContext(PrincipalContext);
+    const {setOpacity, spinner, setSpinner} = useContext(PrincipalContext);
     const [dataRegister, setDataRegister] = useState({
         "name": "",
         "email": "",
@@ -135,6 +136,7 @@ const Register = () => {
             <Header/>
 
             <section className="register">
+                {spinner ? <Spinner/> : null}
                 <div className="register__form">
                     <form>
                         <div className="register__form__text">

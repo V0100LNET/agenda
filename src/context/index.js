@@ -6,8 +6,21 @@ export const PrincipalContext = createContext({});
 export const ContextProvider = ({children}) => {
     const setOpacity = document.body;
     const [spinner, setSpinner] = useState(false);
+    
     const [modalAddNewContact, setModalAddNewContact] = useState(false);
+    const [modalEditContact, setModalEditContact] = useState(false);
+
+    const [infoContactForEdit, setInfoContactForEdit] = useState();
+    
     const [dataContacts, setDataContacts] = useState([]);
+    
+    const [newContact, setNewContact] = useState({
+        "name": "",
+        "lastName": "",
+        "phone": "",
+        "email": "",
+        "creator": ""
+    })
 
 
     return(
@@ -16,7 +29,10 @@ export const ContextProvider = ({children}) => {
                 spinner, setSpinner,
                 setOpacity,
                 modalAddNewContact, setModalAddNewContact,
-                dataContacts, setDataContacts
+                dataContacts, setDataContacts,
+                newContact, setNewContact,
+                modalEditContact, setModalEditContact,
+                infoContactForEdit, setInfoContactForEdit
             }}>
             {children}
         </PrincipalContext.Provider>
