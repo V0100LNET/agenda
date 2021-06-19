@@ -1,6 +1,10 @@
 export default async function validateRegister(values){
     let errores = {};
 
+    if(!values.name){
+        errores.name = "El nombre es obligatorio";
+    }
+
     if(!values.email){
         errores.email = "El email es obligatorio";
     }

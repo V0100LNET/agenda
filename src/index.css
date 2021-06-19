@@ -19,7 +19,7 @@ body{
 
 .btn-principal{
     border: 1px solid #ccc;
-    border-radius: 25px;
+    border-radius: 13px;
     padding: 5px;
     outline: none;
     background-color: transparent;
@@ -35,6 +35,53 @@ body{
     /* color: rgb(185, 184, 184); */
     color: #606060;
     outline: none;
+}
+
+.opacity{
+    opacity: 0.5;
+}
+
+.opacity-modal{
+    opacity: 0.1;
+    z-index: -999;
+    overflow: hidden;
+}
+/******************************styles spinner**************************/
+.spinner{
+    width: 80px;
+    height: 80px;
+    margin: 100px auto;
+    background-color: var(--secundary-color);
+    border-radius: 100%;  
+    -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+    animation: sk-scaleout 1.0s infinite ease-in-out;
+    /* border: 5px solid red; */
+    position: absolute;
+    top: -30%;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 2;
+}
+  
+@-webkit-keyframes sk-scaleout {
+    0%{ -webkit-transform: scale(0)}
+    100%{
+        -webkit-transform: scale(1.0);
+        opacity: 0;
+    }
+}
+  
+@keyframes sk-scaleout{
+    0% { 
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    } 100% {
+        -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+        opacity: 0;
+    }
 }
 
 /******************************styles header**************************/
@@ -84,6 +131,12 @@ body{
     padding: 8px 10px;
     color: var(--secundary-color);
     font-size: 1rem;
+}
+
+.content-header .content-header__buttons .btn-saludo{
+    margin-right: 20px;
+    border: none;
+    color: var(--secundary-color);
 }
 
 .content-header .content-header__buttons i{
@@ -282,3 +335,163 @@ main .left .obtain-account{
     border: 1px solid rgb(156, 153, 153);
 }
 
+.content-buttons .agenda__title{
+    margin-top: 100px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/******************************styles Agenda**************************/
+.content__card{
+    margin-top: 100px;
+    padding: 20px;
+    max-width: 1300;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 420px;
+    height: 220px;
+    border: 1px solid #ebebec;
+    font-size: 0.7rem;
+    padding: 20px 20px 5px 20px;
+    box-shadow: rgb(102, 102, 102);
+    margin-bottom: 20px;
+    margin-top: 20px;
+    /* background-color: #ebecec; */
+    margin-right: 50px;
+    border-radius: 8px;
+}
+
+.card .card__info .card__info_title{
+    text-align: center;
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.card .card__info h2{
+    margin-top: 5px;
+}
+
+.card .card__info span{
+    font-weight: normal;
+}
+
+.card .card__button-delete{
+    padding: 7px 0;
+    color: white;
+    width: 100%;
+    margin-top: 10px;
+    background-color: var(--secundary-color);
+}
+
+.card .card__button-delete:hover{
+    background-color: var(--secundary-color);
+    opacity: 0.899;
+}
+
+.card .card__button-edit{
+    padding: 7px 0;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.content-buttons{
+    text-align: center;
+    margin-top: 30px;
+}
+
+.content-buttons > *{
+    margin-right: 10px;
+}
+
+.content-buttons .content-buttons_add-new{
+    padding: 13px 12px;
+    background: none;
+}
+
+.content-buttons .content-buttons_add-new:hover{
+    background-color: var(--secundary-color);
+    transition: 0.3s ease;
+    color: white;
+    animation-name: slow-color;
+    animation-duration: 2s;
+    animation-direction: normal;
+    animation-timing-function: linear;
+}
+
+@keyframes slow-color{
+    0% {background-color: #2e394d;}
+    20% {background-color: #3e4e69;}
+    40% {background-color: #1f3253;}
+    60% {background-color: #234889;}
+    80% {background-color: #234889;}
+    100% {background-color: #234889;}
+}
+
+/******************************styles modal**************************/
+.add-contact{
+    background-color: rgb(253, 252, 252);
+    width: 500px;
+    height: 480px;
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 20%;
+    margin: auto;
+    border: 1px solid #ebebec;
+    border-radius: 8px;
+    z-index: 3;
+}
+
+.add-contact{
+    padding: 20px;
+}
+
+.add-contact .close-modal{
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+    float: right;
+    display: block;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.add-contact .add-contact__title{
+    text-align: center;
+    /* vertical-align: middle; */
+    /* margin-top: 20px; */
+}
+
+.add-contact .add-contact__form{
+    margin-top: 10px;
+}
+
+.add-contact .add-contact__form label{
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.add-contact .add-contact__form input{
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ebebec;
+    padding: 12px 8px;
+    margin-bottom: 5px;
+    outline: none;
+}
+
+.add-contact .add-contact__form .btn-add-contact{
+    margin-top: 10px;
+    width: 100%;
+    padding: 12px 8px;
+    background-color: var(--secundary-color);
+    color: white;
+    font-size: 1.3rem;
+}

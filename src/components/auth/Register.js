@@ -1,18 +1,22 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import axiosClient from '../../config/axios';
+import { PrincipalContext } from '../../context';
 import validateRegister from '../../helpers/validateRegister';
 import Header from '../layout/Header';
 
 
 const Register = () => {
     const history = useHistory();
+    const {setOpacity, setSpinner} = useContext(PrincipalContext);
     const [dataRegister, setDataRegister] = useState({
+        "name": "",
         "email": "",
         "password": "",
         "repeat_password": "",
     })
-    const {email, password, repeat_password} = dataRegister;
+    const {email, password, repeat_password, name} = dataRegister;
 
     const submitLogin = () => {
         history.push('/login');
@@ -39,6 +43,16 @@ const Register = () => {
 
             return;
         }
+
+        if(validate.name){
+            Swal.fire({
+                icon: 'error',
+                title: '¡ERROR!',
+                text: validate.name,
+                confirmButtonText: 'Aceptar'
+            })
+            return;
+        }
         
         if(validate.email){
             Swal.fire({
@@ -47,6 +61,7 @@ const Register = () => {
                 text: validate.email,
                 confirmButtonText: 'Aceptar'
             })
+            return;
         }
 
         if(validate.password){
@@ -56,6 +71,7 @@ const Register = () => {
                 text: validate.password,
                 confirmButtonText: 'Aceptar'
             })
+            return;
         }
 
         if(validate.repeat_password){
@@ -65,6 +81,7 @@ const Register = () => {
                 text: validate.repeat_password,
                 confirmButtonText: 'Aceptar'
             })
+            return;
         }
 
         if(validate.equals_password){
@@ -74,9 +91,43 @@ const Register = () => {
                 text: validate.equals_password,
                 confirmButtonText: 'Aceptar'
             })
+            return;
         }
+        
+        try{
+            setOpacity.classList.add("opacity");
+            setSpinner(true);
+            let responseDataBase = await axiosClient.post('/register', dataRegister);
+            if(responseDataBase.data.status === 405){
+                Swal.fire({
+                    icon: 'error',
+                    title: '¡ERROR!',
+                    text: responseDataBase.data.message,
+                    confirmButtonText: 'Aceptar'
+                })
+                setSpinner(false);
+                setOpacity.classList.remove("opacity");
+                return
+            }
 
-        console.log(dataRegister);
+            setTimeout(() => {
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Registro Exitoso!',
+                    confirmButtonText: 'Aceptar'
+                })
+                setSpinner(false);
+                setOpacity.classList.remove("opacity");
+                setDataRegister({
+                    "name": "",
+                    "email": "",
+                    "password": "",
+                    "repeat_password": "",
+                })
+            },1000)
+        }catch (error) {
+            console.log(error)   
+        }
     }
 
     return(
@@ -94,6 +145,15 @@ const Register = () => {
                             </p>
                         </div>
                         <div className="register__form__form">
+                        <label>Nombre</label>
+                            <input 
+                                type="text" 
+                                placeholder="Ingresa tu primer nombre" 
+                                className="input-principal"
+                                name="name"
+                                value={name}
+                                onChange={changeData}
+                            />
                             <label>Correo electrónico</label>
                             <input 
                                 type="email" 

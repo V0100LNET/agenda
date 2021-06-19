@@ -5,7 +5,7 @@ export default async function validateLogin(values){
         errores.email = "Todos los campos son obligatorios";
     }
     else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)){
-        errores.email = "El email no es valido";
+        errores.email = "El email no es válido";
     }
 
     if(!values.password){
