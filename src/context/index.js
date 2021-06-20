@@ -32,7 +32,7 @@ export const ContextProvider = ({children}) => {
                 dataContacts, setDataContacts,
                 newContact, setNewContact,
                 modalEditContact, setModalEditContact,
-                infoContactForEdit, setInfoContactForEdit
+                infoContactForEdit, setInfoContactForEdit,
             }}>
             {children}
         </PrincipalContext.Provider>

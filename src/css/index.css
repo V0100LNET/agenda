@@ -71,7 +71,7 @@ body{
     -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
     animation: sk-scaleout 1.0s infinite ease-in-out;
     position: absolute;
-    top: -30%;
+    top: -10%;
     right: 0;
     left: 0;
     bottom: 0;
@@ -377,7 +377,7 @@ main .left .obtain-account{
 
 /******************************styles Agenda**************************/
 .content__card{
-    margin-top: 100px;
+    margin-top: 50px;
     padding: 20px;
     max-width: 1300;
     display: flex;
@@ -391,7 +391,7 @@ main .left .obtain-account{
     border: 1px solid #ebebec;
     font-size: 0.7rem;
     padding-bottom: 15px;
-    padding: 20px 20px 5px 20px;
+    padding: 20px 20px 20px 20px;
     box-shadow: rgb(102, 102, 102);
     margin-bottom: 20px;
     margin-top: 20px;
@@ -716,9 +716,11 @@ main .left .obtain-account{
     }
 }
 
-/**********************************cards**********************************/
-@media screen and (max-width: 462px){
-
+/**********************************spinner**********************************/
+@media screen and (max-width: 450px){
+    .spinner{
+        top: 45%;
+    }
 }
 
 /**********************************modal agregar contacto**********************************/
