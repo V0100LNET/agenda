@@ -1,13 +1,13 @@
-import Home from './components/layout/Home';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-import '../src/css/index.css';
-import Login from './components/auth/Login';
-import Contact from './components/layout/Contact';
-import Register from './components/auth/Register';
-import Agenda from './components/dashboard/Agenda';
-import { ContextProvider } from './context';
-import About from './components/layout/About';
 import Projects from './components/layout/Projects';
+import Agenda from './components/dashboard/Agenda';
+import Register from './components/auth/Register';
+import Contact from './components/layout/Contact';
+import About from './components/layout/About';
+import Home from './components/layout/Home';
+import Login from './components/auth/Login';
+import { ContextProvider } from './context';
+import '../src/css/index.css';
 
 function App() {
   return (

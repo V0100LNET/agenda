@@ -1,9 +1,9 @@
+import validateEditContact from '../../helpers/validateEditContact';
 import React, { useContext, useState } from 'react'
 import { PrincipalContext } from '../../context';
-import validateEditContact from '../../helpers/validateEditContact';
-import Swal from 'sweetalert2';
 import axiosClient from '../../config/axios';
 import Spinner from '../Spinner';
+import Swal from 'sweetalert2';
 
 const ModalEditContact = () => {
     const { setModalEditContact ,setOpacity, infoContactForEdit, spinner, setSpinner} = useContext(PrincipalContext);
@@ -28,7 +28,6 @@ const ModalEditContact = () => {
     const saveChanges = async(e) => {
         e.preventDefault();
         const validateData = await validateEditContact(dataContactEdit)
-        console.log(validateData)
         
         //eslint-disable-next-line
         if(Object.keys(validateData) != 0){
@@ -84,20 +83,13 @@ const ModalEditContact = () => {
         }catch (error){
             console.log(error);
         }
-
-        console.log(dataContactEdit);
     }
-
-    console.log(name, lastName, phone, email)
-
-
 
     const handleChange = (field, value) => {
         setDataContactEdit({
             ...dataContactEdit,
             [field]: value
         })
-        console.log(field, value);
     }
     return(
         <section className="add-contact">

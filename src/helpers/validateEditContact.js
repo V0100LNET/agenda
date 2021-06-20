@@ -1,5 +1,4 @@
 export default async function validateEditContact(values){
-    console.log(values)
     let errors = {}
 
     if(!values.newName){

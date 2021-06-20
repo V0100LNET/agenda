@@ -13,7 +13,6 @@ const Login = () => {
         "email": "",
         "password": ""
     });
-    // const [error, setError] = useState(false);
     const {spinner, setSpinner, setOpacity} = useContext(PrincipalContext);
     const {email, password} = dataLogin;
 
@@ -27,13 +26,11 @@ const Login = () => {
         const validate = await validateLogin(dataLogin);
         
         if(Object.keys(validate).length === 0){
-            console.log(dataLogin);
             setSpinner(true);
             setOpacity.classList.add("opacity");
             
             try{
                 let requestDataBase = await axiosClient.post("/login", dataLogin)
-                console.log(requestDataBase.data);
 
                 if(requestDataBase.data.status === 404 || requestDataBase.data.status === 405){
                     setOpacity.classList.remove("opacity");

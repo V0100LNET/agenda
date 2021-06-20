@@ -1,6 +1,6 @@
+import img_page from "../../assets/svg/img_home_page.svg";
 import React, { Fragment } from 'react';
 import Header from './Header';
-import img_page from "./img_home_page.svg"
 
 
 const Home = () => {

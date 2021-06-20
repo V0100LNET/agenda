@@ -1,9 +1,9 @@
+import EditInfoContact from './modals/ModalEditContact';
 import React, { useContext, useEffect } from 'react';
-import axiosClient from '../config/axios';
 import { PrincipalContext } from '../context';
+import axiosClient from '../config/axios';
 import Spinner from './Spinner';
 import Swal from 'sweetalert2';
-import EditInfoContact from './modals/ModalEditContact';
 
 
 const CardContact = () => {
@@ -75,7 +75,6 @@ const CardContact = () => {
 
     const handleEditContact = (info) => {
         setInfoContactForEdit(info)
-        console.log(info);
         const addOpacity = document.querySelector(".content-buttons");
         const addOpacityCard = document.querySelector(".content__card");
         addOpacity.classList.add("opacity-modal");
