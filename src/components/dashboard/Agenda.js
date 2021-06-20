@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect, useState } from 'react';
+import React, { Fragment, useContext} from 'react';
 import Header from '../layout/Header';
 import CardContact from '../CardContact';
 import { PrincipalContext } from '../../context';
@@ -7,12 +7,10 @@ import ModalEditContact from '../modals/ModalEditContact';
 import axiosClient from '../../config/axios';
 
 const Agenda = () => {
-    // const [contacts, setContacts] = useState(null);
     const {
         modalAddNewContact, setModalAddNewContact,
         setOpacity, modalEditContact,
         dataContacts, setDataContacts,
-        setSpinner
     } = useContext(PrincipalContext);
 
     const showModalAddNewContact = () => {
