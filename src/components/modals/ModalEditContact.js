@@ -29,7 +29,9 @@ const ModalEditContact = () => {
         e.preventDefault();
         const validateData = await validateEditContact(dataContactEdit)
         console.log(validateData)
-        if(Object.keys(validateData) !== 0){
+        
+        //eslint-disable-next-line
+        if(Object.keys(validateData) != 0){
             Swal.fire({
                 icon: 'error',
                 title: '¡ERROR!',
