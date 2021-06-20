@@ -20,7 +20,7 @@ const Home = () => {
                 <section className="left">
                     <h1>Agenda de Contactos openagenda.</h1>
                     <p>
-                        Con openagenda encontraras las mejores herramientas 
+                        Con openagenda encontrarás las mejores herramientas 
                         para registrar tus contactos de una manera intuitiva, 
                         además podrás consultarlos desde cualquier lugar.
                     </p>
