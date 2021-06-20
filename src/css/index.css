@@ -388,9 +388,9 @@ main .left .obtain-account{
 
 .card{
     width: 420px;
-    height: 220px;
     border: 1px solid #ebebec;
     font-size: 0.7rem;
+    padding-bottom: 15px;
     padding: 20px 20px 5px 20px;
     box-shadow: rgb(102, 102, 102);
     margin-bottom: 20px;
@@ -476,7 +476,7 @@ main .left .obtain-account{
     background-color: rgb(253, 252, 252);
     width: 500px;
     height: 480px;
-    position: sticky;
+    position: absolute;
     top: 0;
     right: 0;
     left: 0;
@@ -702,7 +702,7 @@ main .left .obtain-account{
 }
 
 /**********************************agenda**********************************/
-@media screen and (max-width: 462px){
+@media screen and (max-width: 400px){
     .content-buttons{
         padding: 20px;
     }
@@ -714,6 +714,11 @@ main .left .obtain-account{
         margin-top: 20px;
         width: 100%;
     }
+}
+
+/**********************************cards**********************************/
+@media screen and (max-width: 462px){
+
 }
 
 /**********************************modal agregar contacto**********************************/
