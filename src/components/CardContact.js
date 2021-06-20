@@ -1,4 +1,3 @@
-import EditInfoContact from './modals/ModalEditContact';
 import React, { useContext, useEffect } from 'react';
 import { PrincipalContext } from '../context';
 import axiosClient from '../config/axios';
@@ -11,7 +10,7 @@ const CardContact = () => {
         dataContacts, 
         setDataContacts, setOpacity,
         spinner, setSpinner,
-        modalEditContact, setModalEditContact,
+        setModalEditContact,
         setInfoContactForEdit
     } = useContext(PrincipalContext);
 
@@ -87,7 +86,6 @@ const CardContact = () => {
 
     return(
         <section className="content__card">
-            {/* {noDataForToShow ? <h1>No hay Contactos para mostrar</h1> : null} */}
             {dataContacts.map((info, index) => (
                 <div className="card" key={index}>
                     <div key={index} className="card__info">
@@ -101,7 +99,6 @@ const CardContact = () => {
                 </div>
             ))}
             {spinner ? <Spinner/> : null}
-            {modalEditContact ? <EditInfoContact/> : null}
         </section>
     )
 }
