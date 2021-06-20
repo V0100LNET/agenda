@@ -6,7 +6,7 @@ import axiosClient from '../../config/axios';
 import Spinner from '../Spinner';
 
 const ModalEditContact = () => {
-    const { modalEditContact, setModalEditContact, newContact ,setOpacity, infoContactForEdit, setInfoContactForEdit, spinner, setSpinner} = useContext(PrincipalContext);
+    const { setModalEditContact ,setOpacity, infoContactForEdit, spinner, setSpinner} = useContext(PrincipalContext);
     const {name, lastName, phone, email, _id} = infoContactForEdit; //destructuracion de los datos anteriores
     const [dataContactEdit, setDataContactEdit] = useState({
         id: _id.$oid,
@@ -15,14 +15,6 @@ const ModalEditContact = () => {
         newPhone: phone,
         newEmail: email
     })
-    const {newName, newLastName, newPhone, newEmail, id} = dataContactEdit; //nuevos cambios para editar contacto
-
-    // const changeDataEditContact = (e) => {
-    //     setDataContactEdit({
-    //         ...dataContactEdit,
-    //         [e.target.name]: e.target.value
-    //     })
-    // }
     
     const closeModalEditContact = () => {
         const addOpacity = document.querySelector(".content-buttons");
@@ -37,7 +29,7 @@ const ModalEditContact = () => {
         e.preventDefault();
         const validateData = await validateEditContact(dataContactEdit)
         console.log(validateData)
-        if(Object.keys(validateData) != 0){
+        if(Object.keys(validateData) !== 0){
             Swal.fire({
                 icon: 'error',
                 title: '¡ERROR!',

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import logo_login from "../../assets/img/logo-Ekomercio.png"
 import { PrincipalContext } from '../../context';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     const setOpacity = document.body;
@@ -11,26 +12,52 @@ const Header = () => {
     
     const submitLogin = () => {
         history.push('/login');
+        setOpacity.classList.remove("set-over-flow")
     }
 
     const submitRegister = () => {
         history.push('/register');
+        setOpacity.classList.remove("set-over-flow")
     }
 
     const goToAgenda = () => {
         history.push('/agenda');
+        setOpacity.classList.remove("set-over-flow")
     }
 
     const closeSession = () => {
+        setSpinner(true);
         setOpacity.classList.add("opacity");
         localStorage.removeItem('name');
         localStorage.removeItem('email');
-        setSpinner(true);
         setTimeout(() => {
             setSpinner(false);
             setOpacity.classList.remove("opacity");
+            setOpacity.classList.remove("set-over-flow")
             history.push('/');
         },2000)
+    }
+
+    const onClickShowMenu = () => {
+        const check_localstorage = localStorage.getItem("email");
+        const show_menu = document.querySelector(".content-header__links");
+        const btn_saludo = document.querySelector(".btn-saludo");
+        const btn_login = document.querySelector(".__login");
+        const btn_register = document.querySelector(".__register");
+        const size_window = window.innerWidth
+        
+        show_menu.classList.toggle("show-menu");
+        setOpacity.classList.toggle("set-over-flow")
+
+        if(check_localstorage && size_window <= 600){
+            btn_login.classList.toggle("show-btn");
+            btn_saludo.classList.toggle("show-btn");
+        }
+        
+        if(!check_localstorage && size_window <= 600){
+            btn_login.classList.toggle("show-btn");
+            btn_register.classList.toggle("show-btn");
+        }
     }
 
     return(
@@ -50,18 +77,17 @@ const Header = () => {
                             <div>
                                 <button className="__login btn-principal" onClick={submitLogin}>Iniciar Sesión</button>
                                 <button className="__register btn-principal" onClick={submitRegister} >Registrarse</button>
-                                <a href="/#"><i className="fas fa-bars"></i></a>
+                                <Link href="/" to="/#" onClick={onClickShowMenu}><i className="fas fa-bars"></i></Link>
                             </div>
                         ) 
                         :(
                             <div>
-                                <button className="btn-principal btn-saludo" onClick={goToAgenda}>{`Buen dia ${user_localStorage}`}</button>
+                                <button className="btn-saludo btn-principal" onClick={goToAgenda}>{`Buen dia ${user_localStorage}`}</button>
                                 <button className="__login btn-principal" onClick={closeSession}>Cerrar Sesión</button>
-                                <a href="/#"><i className="fas fa-bars"></i></a>
+                                <Link href="/" to="/#" onClick={onClickShowMenu}><i className="fas fa-bars"></i></Link>
                             </div>
                         )
                     }
-                
                 </div>
             </div>
         </header>

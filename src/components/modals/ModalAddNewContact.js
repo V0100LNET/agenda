@@ -1,14 +1,12 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { PrincipalContext } from '../../context';
 import validateNewContact from '../../helpers/validateNewContact';
 import Swal from 'sweetalert2'
 import axiosClient from '../../config/axios';
 import Spinner from '../Spinner';
-import { useHistory } from 'react-router-dom';
 
 
 const ModalAddNewContact = () => {
-    const history = useHistory();
     const {
         setModalAddNewContact, setOpacity, 
         spinner, setSpinner, 
@@ -35,7 +33,9 @@ const ModalAddNewContact = () => {
     const saveContact = async(e) => {
         e.preventDefault();
         const validateData = await validateNewContact(newContact);
+        console.log(validateData);
         
+        //eslint-disable-next-line
         if(Object.keys(validateData) != 0){
             Swal.fire({
                 icon: 'error',
@@ -52,6 +52,7 @@ const ModalAddNewContact = () => {
             setOpacityModalNewContact.classList.add("opacity");
             setSpinner(true);
             let responseDataBase = await axiosClient.post('/contact', newContact);
+            console.log(responseDataBase);
             
             if(responseDataBase.data.status === 406 || responseDataBase.data.status === 405){
                 setOpacityModalNewContact.classList.remove("opacity");

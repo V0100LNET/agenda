@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useState } from 'react';
+import React, { Fragment, useContext } from 'react';
 import Header from '../layout/Header';
 import CardContact from '../CardContact';
 import { PrincipalContext } from '../../context';
@@ -38,7 +38,6 @@ const Agenda = () => {
 
             {modalAddNewContact ? <ModalAddNewContact/> : null}
             {modalEditContact ? <ModalEditContact/> : null}
-
         </Fragment>
     )
 }

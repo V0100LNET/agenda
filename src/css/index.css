@@ -15,6 +15,7 @@
 
 body{
     font-family: 'Roboto', sans-serif;
+    overflow-x: hidden
 }
 
 .btn-principal{
@@ -46,6 +47,20 @@ body{
     z-index: -999;
     overflow: hidden;
 }
+
+.show-menu{
+    top: 100% !important;
+}
+
+.show-btn{
+    position: static !important;
+    transition: all 0.8s;
+    background-color: white;
+}
+
+.set-over-flow{
+    overflow: hidden;
+}
 /******************************styles spinner**************************/
 .spinner{
     width: 80px;
@@ -55,7 +70,6 @@ body{
     border-radius: 100%;  
     -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
     animation: sk-scaleout 1.0s infinite ease-in-out;
-    /* border: 5px solid red; */
     position: absolute;
     top: -30%;
     right: 0;
@@ -170,6 +184,7 @@ main{
     max-width: 1300px;
     margin: auto;
     width: 100%;
+    min-width: 360px;
 }
 
 main .left h1{
@@ -366,8 +381,9 @@ main .left .obtain-account{
     padding: 20px;
     max-width: 1300;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
+    background-color: #fcfcfc;
 }
 
 .card{
@@ -380,8 +396,13 @@ main .left .obtain-account{
     margin-bottom: 20px;
     margin-top: 20px;
     /* background-color: #ebecec; */
-    margin-right: 50px;
     border-radius: 8px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.card:hover{
+    transform: scale(1.03,1.03);
+    transition: 0.3s all;
 }
 
 .card .card__info .card__info_title{
@@ -513,4 +534,190 @@ main .left .obtain-account{
     background-color: var(--secundary-color);
     color: white;
     font-size: 1.3rem;
+}
+
+/*********************************styles responsive*************************/
+/**********************************Header**********************************/
+@media screen and (max-width: 800px) {
+    header{
+        position: relative;
+        height: 65px;
+        z-index: 5;
+    }
+
+    header .content-header .content-header__links{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        /* top: 100%; */
+        top: -100vh;
+        right: 0;
+        left: 0;
+        /* bottom: 0; */
+        margin: auto;
+        text-align: center;
+        /* border: 1px solid red; */
+        background-color: #345080;
+        transition: all 0.8s;
+        height: 350px;
+    }
+
+    header .content-header .content-header__links > *{
+        color: white;
+        padding: 30px 0;
+    }
+
+    header .content-header .content-header__links a{
+        border-bottom: 1px solid rgb(98, 106, 150);
+    }
+
+    header .content-header .content-header__buttons{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    header .content-header .content-header__buttons a i{
+        display: inline-block;
+        margin-left: 10px;
+    }
+
+    header .content-header .content-header__buttons a{
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    header .content-header .content-header__buttons a{
+        position: absolute !important;
+        top: -320px !important;
+        right: 20px !important;
+        transition: all 0.8s;
+
+    }
+
+    header .content-header .content-header__buttons{
+        position: absolute;
+        top: 340px;
+        right: 0;
+        left: 0;
+        margin: auto;
+        text-align: center;
+        transition: all 0.8s;
+    }
+    
+    header .content-header .content-header__buttons div button{
+        position: absolute;
+        top: -100vh;
+        transition: all 0.8s;
+    }
+}
+
+/**********************************Home**********************************/
+@media screen and (max-width: 950px){
+    main .left h1{
+        font-size: 2rem;
+    }
+
+    main .right img{
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 800px){
+    main{
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    main .left{
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 450px){
+    main{
+        padding: 20px 20px;
+    }
+
+    main .right img{
+        margin-top: 40px;
+        width: 300px;
+    }
+
+    main .left{
+        text-align: center;
+    }
+}
+
+/**********************************login**********************************/
+@media screen and (max-width: 550px){
+    .login .login__form form{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .register{
+        padding: 0;
+    }
+
+    .login .login__form{
+        padding-top: 50px;
+    }
+
+    .login .login__form form{
+        padding: 25px 20px 50px 25px;
+    }
+
+    .login .login__form .login__form__text h1{
+        font-size: 1.8rem;
+    }
+}
+
+/**********************************login**********************************/
+@media screen and (max-width: 550px){
+    .register .register__form form{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .register .register__form{
+        padding-top: 0;
+    }
+
+    .register .register__form form{
+        padding: 25px 20px 50px 25px;
+    }
+
+    .register .register__form .register__form__text h1{
+        font-size: 1.8rem;
+    }
+}
+
+/**********************************agenda**********************************/
+@media screen and (max-width: 462px){
+    .content-buttons{
+        padding: 20px;
+    }
+
+    .content-buttons .content-buttons_add-new,
+    .content-buttons .input-principal{
+        display: block;
+        margin: auto;
+        margin-top: 20px;
+        width: 100%;
+    }
+}
+
+/**********************************modal agregar contacto**********************************/
+@media screen and (max-width: 550px) {
+    .add-contact{
+        width: 90%;
+    }
 }

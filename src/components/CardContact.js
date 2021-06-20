@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import axiosClient from '../config/axios';
 import { PrincipalContext } from '../context';
 import Spinner from './Spinner';
@@ -6,14 +6,13 @@ import Swal from 'sweetalert2';
 import EditInfoContact from './modals/ModalEditContact';
 
 
-const CardContact = ({info2}) => {
-    const [noDataForToShow, setNoDataForToShow] = useState(false);
+const CardContact = () => {
     const {
         dataContacts, 
         setDataContacts, setOpacity,
         spinner, setSpinner,
         modalEditContact, setModalEditContact,
-        infoContactForEdit, setInfoContactForEdit
+        setInfoContactForEdit
     } = useContext(PrincipalContext);
 
     useEffect(() => {
@@ -52,6 +51,7 @@ const CardContact = ({info2}) => {
                 setSpinner(true);
                 try{
                     let idContact = {"id": id.$oid};
+                    //eslint-disable-next-line
                     let responseDataBase = await axiosClient.post(`/delete-contact`, idContact);
                 }catch (error) {
                     console.log(error);
@@ -90,7 +90,7 @@ const CardContact = ({info2}) => {
         <section className="content__card">
             {/* {noDataForToShow ? <h1>No hay Contactos para mostrar</h1> : null} */}
             {dataContacts.map((info, index) => (
-                <div className="card">
+                <div className="card" key={index}>
                     <div key={index} className="card__info">
                         <h2 className="card__info_title">{info.name}</h2>
                         <h2><span className="card__info_bold">Nombre:</span> {`${info.name} ${info.lastName}`}</h2>
