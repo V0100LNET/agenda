@@ -289,7 +289,7 @@ main .left .obtain-account{
 
 /******************************styles Register**************************/
 .register{
-    height: 100vh;
+    height: 130vh;
     background:  url("../assets/img/bg_login.jpg");
     background-position: center;
     background-repeat: no-repeat;
