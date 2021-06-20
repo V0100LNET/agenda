@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import logo_login from "../../assets/img/logo-Ekomercio.png"
 import { PrincipalContext } from '../../context';
-import { Link } from 'react-router-dom';
+
 
 const Header = () => {
     const setOpacity = document.body;
@@ -38,7 +38,8 @@ const Header = () => {
         },2000)
     }
 
-    const onClickShowMenu = () => {
+    const onClickShowMenu = (e) => {
+        e.preventDefault();
         const check_localstorage = localStorage.getItem("email");
         const show_menu = document.querySelector(".content-header__links");
         const btn_saludo = document.querySelector(".btn-saludo");
@@ -67,9 +68,9 @@ const Header = () => {
                     <a href="/"><img className="__logo" src={logo_login} alt="logo"/></a>
                 </div>
                 <nav className="content-header__links">
-                    <a href="/#">Contacto</a>
-                    <a href="/#">Acerca de</a>
-                    <a href="/#">Proyectos</a>
+                    <a href="/contact">Contacto</a>
+                    <a href="/about">Acerca de</a>
+                    <a href="/projects">Proyectos</a>
                 </nav>
                 <div className="content-header__buttons">
                     {user_localStorage === null 
@@ -77,14 +78,14 @@ const Header = () => {
                             <div>
                                 <button className="__login btn-principal" onClick={submitLogin}>Iniciar Sesión</button>
                                 <button className="__register btn-principal" onClick={submitRegister} >Registrarse</button>
-                                <Link href="/" to="/#" onClick={onClickShowMenu}><i className="fas fa-bars"></i></Link>
+                                <a href="/#" onClick={onClickShowMenu}><i className="fas fa-bars"></i></a>
                             </div>
                         ) 
                         :(
                             <div>
                                 <button className="btn-saludo btn-principal" onClick={goToAgenda}>{`Buen dia ${user_localStorage}`}</button>
                                 <button className="__login btn-principal" onClick={closeSession}>Cerrar Sesión</button>
-                                <Link href="/" to="/#" onClick={onClickShowMenu}><i className="fas fa-bars"></i></Link>
+                                <a href="/#" onClick={onClickShowMenu}><i className="fas fa-bars"></i></a>
                             </div>
                         )
                     }

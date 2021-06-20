@@ -6,6 +6,8 @@ import Contact from './components/layout/Contact';
 import Register from './components/auth/Register';
 import Agenda from './components/dashboard/Agenda';
 import { ContextProvider } from './context';
+import About from './components/layout/About';
+import Projects from './components/layout/Projects';
 
 function App() {
   return (
@@ -14,9 +16,11 @@ function App() {
         <Switch>
             <Route exact path="/" component={Home}/>
             <Route exact path="/login" component={Login}/>
-            <Route exact path="/contact" component={Contact}/>
             <Route exact path="/register" component={Register}/>
             <Route exact path="/agenda" component={Agenda}/>
+            <Route exact path="/contact" component={Contact}/>
+            <Route exact path="/about" component={About}/>
+            <Route exact path="/projects" component={Projects}/>
         </Switch>
       </Router>
       </ContextProvider>

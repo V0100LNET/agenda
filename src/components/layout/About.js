@@ -1,15 +1,14 @@
 import React from 'react';
 import Header from './Header';
 
-
-const Contact = () => {
+const About = () => {
     return(
         <div>
             <Header/>
-            <h1>Desde contact</h1>
+            <h1>Desde about</h1>
         </div>
     )
 }
 
 
-export default Contact;
+export default About;
