@@ -57,11 +57,6 @@ const Login = () => {
             }
 
             return
-
-
-
-            
-
         }   
 
         if(validate.email && validate.password){
